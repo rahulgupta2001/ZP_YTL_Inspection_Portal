@@ -1,18 +1,19 @@
 /* ====== Main Dashboard Container ====== */
 .dashboard-container {
-  position: fixed;          /* keeps it fixed on screen */
-  top: 50%;                 /* vertical center */
-  left: 50%;                /* horizontal center */
-  transform: translate(-50%, -50%); /* truly center it */
-  width: 100%;
-  max-width: 600px;         /* optional max width */
+  position: fixed;          
+  top: 50%;                 
+  left: 50%;                
+  transform: translate(-50%, -50%); 
+  width: 90%;               /* responsive width */
+  max-width: 600px;         
   padding: 20px;
   background: linear-gradient(135deg, #fdf6f0, #f0f4ff);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
-  z-index: 999;             /* keep it on top */
+  z-index: 999;             
+  overflow: auto;           /* scroll if content too large */
+  max-height: 95vh;         /* prevent overflowing viewport */
 }
-
 
 /* ====== Card Styling ====== */
 .dashboard-card {
@@ -20,7 +21,6 @@
   padding: 50px 35px;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
   width: 100%;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -82,6 +82,7 @@
   .button-container {
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .dashboard-button {
@@ -89,22 +90,69 @@
   }
 }
 
-/* ====== Mobile adjustments ====== */
-@media (max-width: 400px) {
+/* ====== Tablet adjustments ====== */
+@media (max-width: 768px) {
   .dashboard-card {
-    padding: 35px 20px;
+    padding: 40px 25px;
   }
 
   .dashboard-card h2 {
-    font-size: 2em;
+    font-size: 2.1em;
   }
 
   .dashboard-card p {
-    font-size: 1em;
+    font-size: 1.05em;
+  }
+
+  .dashboard-button {
+    padding: 15px 24px;
+    font-size: 0.98em;
+  }
+}
+
+/* ====== Mobile adjustments ====== */
+@media (max-width: 480px) {
+  .dashboard-card {
+    padding: 30px 20px;
+  }
+
+  .dashboard-card h2 {
+    font-size: 1.9em;
+  }
+
+  .dashboard-card p {
+    font-size: 0.95em;
+    margin-bottom: 25px;
   }
 
   .dashboard-button {
     font-size: 0.95em;
     padding: 14px 20px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* ====== Extra small screens (<360px) ====== */
+@media (max-width: 360px) {
+  .dashboard-card {
+    padding: 25px 15px;
+  }
+
+  .dashboard-card h2 {
+    font-size: 1.75em;
+  }
+
+  .dashboard-card p {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+
+  .dashboard-button {
+    font-size: 0.9em;
+    padding: 12px 18px;
   }
 }

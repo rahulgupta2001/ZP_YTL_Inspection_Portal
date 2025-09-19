@@ -1,19 +1,19 @@
-/* Main container: full viewport and fixed center */
+/* ======= MAIN CONTAINER: CENTERED FIXED ======= */
 .ceo-dashboard-container {
-  position: fixed;          /* keep it fixed on screen */
-  top: 50%;                 /* vertical center */
-  left: 50%;                /* horizontal center */
-  transform: translate(-50%, -50%); /* truly center it */
-  width: 100%;
-  max-width: 600px;         /* optional max width */
+  position: fixed; /* fixed on screen */
+  top: 50%;        /* vertical center */
+  left: 50%;       /* horizontal center */
+  transform: translate(-50%, -50%); /* true center */
+  width: 90%;      /* responsive width */
+  max-width: 600px; /* optional max width */
   padding: 20px;
   background: linear-gradient(135deg, #fdf6f0, #f0f4ff);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
-  z-index: 999;             /* on top of other elements */
+  z-index: 999; /* on top */
 }
 
-/* Card Styling */
+/* ======= CARD ======= */
 .dashboard-card {
   background-color: #fff;
   padding: 50px 35px;
@@ -29,7 +29,7 @@
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
 }
 
-/* Title & Description */
+/* ======= TITLE & DESCRIPTION ======= */
 h2 {
   font-size: 2.4em;
   color: #6c0000;
@@ -43,7 +43,7 @@ p {
   line-height: 1.5;
 }
 
-/* Buttons */
+/* ======= BUTTONS ======= */
 .button-container {
   display: flex;
   flex-direction: column;
@@ -74,7 +74,9 @@ p {
   box-shadow: 0 10px 25px rgba(108, 0, 0, 0.4);
 }
 
-/* Responsive: buttons side by side for wider screens */
+/* ======= RESPONSIVE LAYOUT ======= */
+
+/* Tablet / wider screens: buttons side by side */
 @media (min-width: 600px) {
   .button-container {
     flex-direction: row;
@@ -86,22 +88,69 @@ p {
   }
 }
 
-/* Mobile adjustments */
-@media (max-width: 400px) {
+/* Medium screens: scale card & text */
+@media (max-width: 768px) {
   .dashboard-card {
-    padding: 35px 20px;
+    padding: 40px 25px;
   }
 
   h2 {
-    font-size: 2em;
+    font-size: 2.1em;
   }
 
   p {
-    font-size: 1em;
+    font-size: 1.05em;
+  }
+
+  .dashboard-button {
+    padding: 15px 24px;
+    font-size: 0.98em;
+  }
+}
+
+/* Mobile: stacked layout & smaller fonts */
+@media (max-width: 480px) {
+  .dashboard-card {
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 1.9em;
+  }
+
+  p {
+    font-size: 0.95em;
+    margin-bottom: 25px;
   }
 
   .dashboard-button {
     font-size: 0.95em;
     padding: 14px 20px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .dashboard-card {
+    padding: 25px 15px;
+  }
+
+  h2 {
+    font-size: 1.75em;
+  }
+
+  p {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+
+  .dashboard-button {
+    font-size: 0.9em;
+    padding: 12px 18px;
   }
 }
