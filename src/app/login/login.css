@@ -1,129 +1,127 @@
-/* --- Global Styles to Disable Scrolling --- */
-html,
-body {
-  height: 100%;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
+/* ===== Page Container ===== */
+.page-container {
+  position: fixed;              /* keeps it fixed on screen */
+  top: 50%;                     /* vertical center */
+  left: 50%;                    /* horizontal center */
+  transform: translate(-50%, -50%); /* truly center it */
+  min-height: auto;             /* height adjusts to content */
+  width: 100%;                  /* full width, can adjust max-width below */
+  max-width: 450px;             /* optional max width for the card */
+  padding: 20px;
+  background: linear-gradient(135deg, #fdf6f0, #f0f4ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  z-index: 999;                 /* keeps it above other content */
 }
 
-/* Main Page Layout */
-.page-container {
+/* ===== Login Card Container ===== */
+.login-card-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ===== Login Card ===== */
+.login-card {
+  background-color: #fff;
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
+  gap: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Main Content and Login Card Styling */
-.main-content {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-  padding: 20px;
+.login-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
 }
 
-@media (max-width: 900px) {
-  .main-content {
-    flex-direction: column;
-    gap: 20px;
-  }
+/* ===== Header ===== */
+.login-title {
+  text-align: center;
+  font-size: 2em;
+  color: #6c0000;
+  font-weight: 700;
+  margin-bottom: 25px;
 }
 
-.image-section .decorative-image {
-  max-width: 400px;
-  height: auto;
-}
-
-@media (max-width: 900px) {
-  .image-section .decorative-image {
-    max-width: 80%;
-  }
-}
-
-.login-card-container {
-  width: 400px;
-  position: fixed;
-  margin-bottom: 200px;
-}
-
-@media (max-width: 450px) {
-  .login-card-container {
-    width: 90%;
-  }
-}
-
-.login-card {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 40px;
-}
-
+/* ===== Form Groups ===== */
 .form-group {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: black;
+label {
+  font-weight: 600;
+  color: #333;
 }
 
+/* ===== Inputs with Icons ===== */
 .input-with-icon {
   position: relative;
-}
-
-.input-with-icon .icon,
-.input-with-icon .password-toggle-icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: black;
-}
-
-.input-with-icon .icon {
-  left: 15px;
-}
-
-.input-with-icon .password-toggle-icon {
-  right: 15px;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .input-with-icon input {
   width: 100%;
-  padding: 12px 45px;
-  border: 1px solid black;
+  padding: 12px 40px 12px 36px;
   border-radius: 8px;
-  box-sizing: border-box;
-  font-size: 1em;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 .input-with-icon input:focus {
-  border-color: red;
+  border-color: #6c0000;
+  box-shadow: 0 0 6px rgba(108, 0, 0, 0.3);
   outline: none;
 }
 
-.login-button {
-  width: 100%;
-  background-color: #6c0000;
-  color: white;
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1.1em;
-  font-weight: bold;
-  transition: background-color 0.3s;
+/* Icon inside input */
+.input-with-icon .icon {
+  position: absolute;
+  left: 10px;
+  color: #999;
+  font-size: 1rem;
 }
 
-.login-button:hover {
-  background-color: #4a0000;
+/* Password toggle icon */
+.password-toggle-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #6c0000;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.password-toggle-icon:hover {
+  color: #8b0000;
+}
+
+/* ===== Button ===== */
+/* ===== Button ===== */
+.login-button {
+  display: block;               /* makes it take up only the content width */
+  margin: 20px auto 0 auto;     /* center horizontally with top margin */
+  padding: 14px 40px;           /* horizontal padding for a nice button size */
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #6c0000, #8b0000);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #8b0000, #6c0000);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108, 0, 0, 0.4);
 }
 
 .login-button:disabled {
@@ -131,14 +129,25 @@ body {
   cursor: not-allowed;
 }
 
-.login-title {
-  text-align: center;
+
+/* ===== Placeholder ===== */
+input::placeholder {
+  color: #999;
+  font-style: italic;
 }
 
-/* Footer style update for better readability */
-footer {
-  font-size: 0.9em;
-  color: #555;
-  text-align: center;
-  padding: 10px;
+/* ===== Responsive ===== */
+@media (max-width: 400px) {
+  .login-card {
+    padding: 25px 20px;
+  }
+
+  .login-title {
+    font-size: 1.8em;
+  }
+
+  .login-button {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
 }
