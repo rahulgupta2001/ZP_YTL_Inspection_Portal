@@ -10,9 +10,11 @@
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
 }
 
+/* ======= LOGO & FLEX ======= */
 .logo-container {
   display: flex;
   align-items: center;
@@ -20,6 +22,7 @@
   max-width: 1400px;
   margin: 0 auto;
   flex-wrap: wrap;
+  gap: 15px;
 }
 
 /* ======= EMBLEMS ======= */
@@ -55,6 +58,8 @@
 /* ======= LOGOUT ======= */
 .header-actions {
   margin-left: 20px;
+  display: flex;
+  align-items: center;
 }
 .logout-button {
   background: linear-gradient(to bottom, #dc3545, #b71c1c);
@@ -80,6 +85,8 @@
 }
 
 /* ======= RESPONSIVE ======= */
+
+/* Medium screens */
 @media (max-width: 992px) {
   .header-title {
     font-size: 1.5em;
@@ -90,17 +97,54 @@
   .emblem {
     height: 55px;
   }
+  .logout-button {
+    padding: 6px 14px;
+    font-size: 0.9em;
+  }
 }
+
+/* Small screens / mobile */
 @media (max-width: 600px) {
   .logo-container {
     flex-direction: column;
     gap: 12px;
     text-align: center;
   }
-  .header-actions {
-    margin-left: 0;
+  .header-text {
+    order: 2;
   }
   .emblem {
     height: 50px;
+  }
+  .header-actions {
+    margin-left: 0;
+    order: 3;
+  }
+  .logout-button {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 0.9em;
+  }
+  .header-title {
+    font-size: 1.35em;
+  }
+  .header-subtitle {
+    font-size: 0.95em;
+  }
+}
+
+/* Extra small screens / very narrow devices */
+@media (max-width: 400px) {
+  .emblem {
+    height: 45px;
+  }
+  .header-title {
+    font-size: 1.2em;
+  }
+  .header-subtitle {
+    font-size: 0.85em;
+  }
+  .logout-button {
+    font-size: 0.85em;
   }
 }

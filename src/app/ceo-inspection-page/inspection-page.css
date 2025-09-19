@@ -3,6 +3,7 @@
   margin: 30px auto;
   padding: 0 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 /* Header */
@@ -28,6 +29,7 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .filters select,
@@ -36,6 +38,7 @@ h2 {
   border-radius: 6px;
   border: 1px solid #ccc;
   transition: all 0.3s;
+  min-width: 120px;
 }
 
 .filters select:focus,
@@ -61,6 +64,7 @@ h2 {
 
 .search input {
   padding-right: 30px;
+  flex: 1;
 }
 
 .search-icon {
@@ -79,6 +83,7 @@ h2 {
   border-collapse: collapse;
   margin-bottom: 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  min-width: 600px;
 }
 
 .inspection-table th,
@@ -105,38 +110,32 @@ h2 {
 }
 
 /* Buttons */
-.blue-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+.blue-btn,
+.green-btn,
+.detail-btn {
   display: flex;
   align-items: center;
   gap: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+
+.blue-btn {
+  background-color: #007bff;
+  color: white;
 }
 
 .green-btn {
   background-color: #28a745;
   color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
 }
 
 .detail-btn {
   background-color: #6c0000;
   color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
 }
 
 .detail-btn:hover {
@@ -155,15 +154,19 @@ h2 {
   justify-content: center;
   align-items: center;
   z-index: 999;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 .modal-content {
   background: white;
   padding: 25px 30px;
   border-radius: 12px;
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   position: relative;
+  overflow-y: auto;
+  max-height: 90vh;
 }
 
 .modal-content h3 {
@@ -200,20 +203,43 @@ h2 {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .filter-search {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   .filters,
   .search {
     width: 100%;
   }
+}
 
+@media (max-width: 768px) {
   .inspection-table th,
   .inspection-table td {
-    font-size: 0.9em;
-    padding: 8px 10px;
+    font-size: 0.85em;
+    padding: 6px 8px;
+  }
+
+  .blue-btn,
+  .green-btn,
+  .detail-btn {
+    font-size: 0.8em;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .inspection-table {
+    min-width: 100%;
+  }
+
+  .filter-search {
+    gap: 10px;
+  }
+
+  h2 {
+    font-size: 1.6em;
   }
 }
