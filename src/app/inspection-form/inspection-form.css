@@ -1,0 +1,240 @@
+/* ================= Main Container ================= */
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px 20px;
+  background: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px 25px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= Header ================= */
+.form-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-title {
+  font-size: 2em;
+  color: #6c0000;
+}
+
+/* ================= Form Grid ================= */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 30px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-full {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.required-star {
+  color: red;
+}
+
+input, select, textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #6c0000;
+}
+
+/* ================= Textarea ================= */
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ================= File Upload / Camera ================= */
+.file-upload-section {
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+.file-upload-section h3 {
+  color: #6c0000;
+  margin-bottom: 5px;
+}
+
+.file-upload-section p {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.file-upload-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* Camera preview */
+.camera-preview {
+  position: relative;
+  margin-top: 10px;
+  border: 2px solid #6c0000;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f0f0f0;
+  min-height: 200px; /* Ensures placeholder looks neat */
+}
+
+.camera-preview video {
+  width: 100%;
+  border-radius: 10px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+/* Camera placeholder when stopped */
+.camera-placeholder {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-weight: 600;
+  font-size: 1em;
+  border-radius: 10px;
+  background: #eaeaea;
+  border: 1px dashed #ccc;
+}
+
+/* Camera controls */
+.photo-capture-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.capture-button, .stop-camera-btn {
+  padding: 8px 15px;
+  font-size: 0.95em;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.capture-button {
+  background: #6c0000;
+}
+
+.capture-button:hover {
+  background: #8b0000;
+}
+
+.stop-camera-btn {
+  background: #555;
+}
+
+.stop-camera-btn:hover {
+  background: #333;
+}
+
+/* Captured photo */
+.captured-photo {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Location Display */
+.location-display {
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #333;
+  text-align: center;
+}
+
+/* ================= Submit Button ================= */
+.submit-btn {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.submit-btn button {
+  padding: 12px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #6c0000, #8b0000);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn button:hover {
+  background: linear-gradient(90deg, #8b0000, #6c0000);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-card {
+    padding: 20px 15px;
+  }
+
+  .form-title {
+    font-size: 1.7em;
+  }
+
+  .capture-button, .stop-camera-btn {
+    font-size: 0.85em;
+    padding: 6px 12px;
+  }
+
+  .submit-btn button {
+    width: 100%;
+  }
+}

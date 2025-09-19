@@ -1,0 +1,75 @@
+<div class="form-container">
+  <div class="form-card">
+    <div class="form-header">
+      <h2 class="form-title">योजना तयार करा</h2>
+    </div>
+
+    <form [formGroup]="yojnaForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="yojnaName">योजनेचे नाव<span class="required-star">*</span></label>
+          <input id="yojnaName" type="text" formControlName="yojnaName" placeholder="योजनेचे नाव लिहा"/>
+        </div>
+
+        <div class="form-group">
+          <label for="selectedOption">योजना प्रकार<span class="required-star">*</span></label>
+          <select id="selectedOption" formControlName="selectedOption">
+            <option value="" disabled selected>योजना निवडा</option>
+            <option *ngFor="let opt of options" [value]="opt.value">{{ opt.label }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="department">विभाग<span class="required-star">*</span></label>
+          <input id="department" type="text" formControlName="department"/>
+        </div>
+
+        <div class="form-group">
+          <label for="district">जिल्हा<span class="required-star">*</span></label>
+          <input id="district" type="text" formControlName="district"/>
+        </div>
+
+        <div class="form-group">
+          <label for="block">तालुका<span class="required-star">*</span></label>
+          <input id="block" type="text" formControlName="block"/>
+        </div>
+
+        <div class="form-group">
+          <label for="village">गाव<span class="required-star">*</span></label>
+          <input id="village" type="text" formControlName="village"/>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">अंदाजित बजेट (₹)<span class="required-star">*</span></label>
+          <input id="budget" type="number" formControlName="budget"/>
+        </div>
+
+        <div class="form-group">
+          <label for="startDate">सुरुवातीची तारीख<span class="required-star">*</span></label>
+          <input id="startDate" type="date" formControlName="startDate"/>
+        </div>
+
+        <div class="form-group">
+          <label for="endDate">शेवटची तारीख<span class="required-star">*</span></label>
+          <input id="endDate" type="date" formControlName="endDate"/>
+        </div>
+
+        <div class="form-group">
+          <label>प्रस्ताव दस्तऐवज (PDF)</label>
+          <input type="file" accept="application/pdf" (change)="onFileSelect($event, 'proposalDoc')"/>
+        </div>
+
+        <div class="form-group">
+          <label>अंदाजपत्रक (PDF)</label>
+          <input type="file" accept="application/pdf" (change)="onFileSelect($event, 'estimateDoc')"/>
+        </div>
+
+      </div>
+
+      <div class="submit-btn">
+        <button type="submit" [disabled]="yojnaForm.invalid">सबमिट करा</button>
+      </div>
+    </form>
+  </div>
+</div>

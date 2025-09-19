@@ -1,0 +1,29 @@
+<div class="clerk-dashboard-container">
+  <div class="dashboard-card">
+    <h2 class="dashboard-title">Clerk Dashboard</h2>
+    <p class="dashboard-subtitle">
+      Welcome! Select an action to proceed.
+    </p>
+
+    <div class="button-container">
+      <button class="dashboard-button" [routerLink]="['/create-user']">
+        <span class="icon">👤</span> Create User
+      </button>
+
+      <button class="dashboard-button" [routerLink]="['/yojana']">
+        <span class="icon">📝</span> योजना तयार करा
+      </button>
+
+      <button class="dashboard-button" [routerLink]="['/kam']">
+        <span class="icon">📋</span> काम तयार करा
+      </button>
+
+      <button
+        class="dashboard-button"
+        [routerLink]="['/inspection-officer-allotment']"
+      >
+        <span class="icon">✅</span> Allocate Inspection Officer
+      </button>
+    </div>
+  </div>
+</div>

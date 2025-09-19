@@ -1,0 +1,120 @@
+/* ====== Container ====== */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 80vh;
+  background: linear-gradient(135deg, #fdf6f0, #f0f4ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ====== Card Styling ====== */
+.form-card {
+  background-color: #fff;
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ====== Form Title ====== */
+h2 {
+  text-align: center;
+  font-size: 2em;
+  color: #6c0000;
+  margin-bottom: 20px;
+}
+
+/* ====== Form Groups ====== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 15px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #6c0000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(108, 0, 0, 0.3);
+}
+
+/* ====== Readonly Inputs ====== */
+input[readonly] {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  cursor: not-allowed;
+  color: #555;
+}
+
+/* ====== Submit Button ====== */
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #6c0000, #8b0000);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(108, 0, 0, 0.3);
+}
+
+button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #8b0000, #6c0000);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(108, 0, 0, 0.4);
+}
+
+button:disabled {
+  background-color: #e6e6e6;
+  cursor: not-allowed;
+}
+
+/* ====== Placeholder ====== */
+input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 500px) {
+  .form-card {
+    padding: 25px 20px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  button {
+    font-size: 0.95em;
+    padding: 12px;
+  }
+}

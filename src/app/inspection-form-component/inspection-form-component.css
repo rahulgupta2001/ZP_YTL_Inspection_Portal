@@ -1,0 +1,111 @@
+/* ===== Container ===== */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #fdf6f0, #f0f4ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ===== Form Card ===== */
+.form-container form {
+  background-color: #fff;
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* ===== Form Title ===== */
+.form-container h2 {
+  font-size: 2em;
+  color: #6c0000;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ===== Labels ===== */
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* ===== Inputs & Selects ===== */
+input,
+select {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #6c0000;
+  box-shadow: 0 0 6px rgba(108,0,0,0.3);
+  outline: none;
+}
+
+/* ===== Placeholder ===== */
+input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* ===== Submit Button ===== */
+button {
+  margin-top: 15px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #6c0000, #8b0000);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #8b0000, #6c0000);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108,0,0,0.4);
+}
+
+button:disabled {
+  background-color: #e6e6e6;
+  cursor: not-allowed;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 500px) {
+  .form-container form {
+    padding: 25px 20px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}

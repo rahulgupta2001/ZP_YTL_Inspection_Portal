@@ -1,0 +1,136 @@
+<main>
+  <div class="form-container">
+    <div class="form-card">
+      <div class="form-header">
+        <h2 class="form-title">तपासणी फॉर्म</h2>
+      </div>
+
+      <form [formGroup]="inspectionForm" (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="projectName">
+              योजनेचे नाव <span class="required-star">*</span>
+            </label>
+            <input id="projectName" type="text" formControlName="projectName" />
+          </div>
+
+          <div class="form-group">
+            <label for="year">वर्ष <span class="required-star">*</span></label>
+            <input
+              id="year"
+              type="text"
+              formControlName="year"
+              placeholder="2025-2026"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="taluka">तालुका <span class="required-star">*</span></label>
+            <select id="taluka" formControlName="taluka">
+              <option value="" disabled selected>तालुका निवडा</option>
+              <option *ngFor="let taluka of talukas" [value]="taluka">
+                {{ taluka }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="village">गाव <span class="required-star">*</span></label>
+            <input
+              id="village"
+              type="text"
+              formControlName="village"
+              placeholder="बोरगाव"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="beneficiaryName">लाभार्थीचे नांव <span class="required-star">*</span></label>
+            <input
+              id="beneficiaryName"
+              type="text"
+              formControlName="beneficiaryName"
+              placeholder="लाभार्थीचे नांव"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="inspectionOfficer">तपासणी अधिकारी <span class="required-star">*</span></label>
+            <input
+              id="inspectionOfficer"
+              type="text"
+              formControlName="inspectionOfficer"
+              placeholder="तपासणी अधिकारी "
+            />
+          </div>
+        </div>
+
+        <div class="form-group-full">
+          <label for="comments">अभिप्राय लिहा <span class="required-star">*</span></label>
+          <textarea id="comments" formControlName="comments"></textarea>
+        </div>
+
+        <div class="form-group-full">
+          <label for="remarks">शेरा <span class="required-star">*</span></label>
+          <textarea id="remarks" formControlName="remarks"></textarea>
+        </div>
+
+        <div class="file-upload-section">
+          <h3>भेटीचे थेट फोटो आणि लोकेशन <span class="required-star">*</span></h3>
+          <p>प्रत्येक फोटोसाठी कॅमेरा सुरू करा, लोकेशन मिळवा आणि फोटो कॅप्चर करा.</p>
+
+          <div class="camera-preview">
+            <video #videoPlayer autoplay playsinline></video>
+            <canvas #photoCanvas style="display: none"></canvas>
+          </div>
+
+          <div class="file-upload-grid">
+            <ng-container *ngFor="let photo of capturedPhotos; let i = index">
+              <div class="file-group">
+                <label>भेटीचा थेट फोटो {{ i + 1 }} *</label>
+
+                <div class="photo-capture-controls">
+                  <!-- Start & Capture Button -->
+                  <button
+                    type="button"
+                    (click)="startCamera(i); capturePhoto(i)"
+                    class="capture-button"
+                  >
+                    <i class="fas fa-camera"></i> सुरू
+                  </button>
+
+                  <!-- Stop Camera Button -->
+                  <button
+                    type="button"
+                    (click)="stopCamera(i)"
+                    class="stop-camera-btn"
+                  >
+                    <i class="fas fa-times"></i> बंद करा
+                  </button>
+                </div>
+
+                <!-- Display Captured Photo -->
+                <img
+                  [src]="photo.dataUrl"
+                  *ngIf="photo.dataUrl"
+                  class="captured-photo"
+                />
+
+                <!-- Display Location -->
+                <div class="location-display" *ngIf="photo.lat !== null">
+                  <p>**पत्ता (Address):** {{ photo.address || 'Loading...' }}</p>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="form-group submit-btn">
+          <button type="submit" [disabled]="inspectionForm.invalid">
+            <span>&#x2713;</span> सबमिट करा
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

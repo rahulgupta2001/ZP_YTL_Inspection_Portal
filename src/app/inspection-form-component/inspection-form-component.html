@@ -1,0 +1,31 @@
+<div class="form-container">
+  <h2>📋 Allocate Inspection Officer</h2>
+
+  <form [formGroup]="inspectionForm" (ngSubmit)="onSubmit()">
+
+    <!-- Kam Name -->
+    <label for="kamName">कामाचं नाव:</label>
+    <input id="kamName" type="text" formControlName="kamName" placeholder="कामाचं नाव टाका" />
+
+    <!-- Yojna Name -->
+    <label for="yojnaName">योजनेचं नाव:</label>
+    <select id="yojnaName" formControlName="yojnaName">
+      <option value="">-- योजना निवडा --</option>
+      <option *ngFor="let y of yojnas" [value]="y.value">{{ y.label }}</option>
+    </select>
+
+    <!-- Inspection Type -->
+    <label for="inspectionType">Inspection Type:</label>
+    <select id="inspectionType" formControlName="inspectionType">
+      <option value="">-- प्रकार निवडा --</option>
+      <option *ngFor="let i of inspectionTypes" [value]="i.value">{{ i.label }}</option>
+    </select>
+
+    <!-- Start Date -->
+    <label for="startDate">Start Date:</label>
+    <input id="startDate" type="date" formControlName="startDate" />
+
+    <!-- Submit -->
+    <button type="submit" [disabled]="inspectionForm.invalid">Allocate Officer</button>
+  </form>
+</div>

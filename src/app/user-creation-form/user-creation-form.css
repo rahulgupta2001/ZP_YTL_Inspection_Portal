@@ -1,0 +1,136 @@
+/* ====== Main Container ====== */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #fdf6f0, #f0f4ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ====== Card Styling ====== */
+.form-card {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ====== Header ====== */
+.form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-title {
+  font-size: 2em;
+  color: #6c0000;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ====== Form Grid ====== */
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ====== Form Groups ====== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.required-star {
+  color: red;
+  margin-left: 2px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #6c0000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(108, 0, 0, 0.3);
+}
+
+/* ====== Error Messages ====== */
+.error-message {
+  font-size: 0.85rem;
+  color: #d32f2f;
+  margin-top: 4px;
+}
+
+/* ====== Submit Button ====== */
+.submit-btn button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #6c0000, #8b0000);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(108, 0, 0, 0.3);
+}
+
+.submit-btn button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #8b0000, #6c0000);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(108, 0, 0, 0.4);
+}
+
+.submit-btn button:disabled {
+  background-color: #e6e6e6;
+  cursor: not-allowed;
+}
+
+/* ====== Placeholder ====== */
+input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 500px) {
+  .form-card {
+    padding: 30px 20px;
+  }
+
+  .form-title {
+    font-size: 1.8em;
+  }
+
+  .submit-btn button {
+    font-size: 0.95em;
+    padding: 12px;
+  }
+}

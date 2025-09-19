@@ -1,0 +1,52 @@
+<div class="page-container">
+  <main class="main-content">
+    <div class="login-card-container">
+      <div class="login-card">
+        <div class="login-header">
+          <h2 class="login-title">लॉगिन</h2>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">युजरनेम</label>
+            <div class="input-with-icon">
+              <i class="fas fa-user icon"></i>
+              <input
+                type="text"
+                id="username"
+                formControlName="username"
+                placeholder="Enter your username"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">पासवर्ड</label>
+            <div class="input-with-icon">
+              <i class="fas fa-lock icon"></i>
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                id="password"
+                formControlName="password"
+                placeholder="Enter your password"
+              />
+              <i
+                class="password-toggle-icon"
+                [ngClass]="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"
+                (click)="togglePasswordVisibility()"
+              ></i>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="login-button"
+            [disabled]="loginForm.invalid"
+          >
+            LOG IN
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>

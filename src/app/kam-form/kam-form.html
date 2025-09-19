@@ -1,0 +1,122 @@
+<div class="form-container">
+  <div class="form-card">
+    <div class="form-header">
+      <h2 class="form-title">काम तयार करा</h2>
+    </div>
+
+    <form [formGroup]="kamForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="yojnaName">योजनेचे नाव:</label>
+          <input
+            id="yojnaName"
+            type="text"
+            formControlName="yojnaName"
+            placeholder="योजनेचे नाव लिहा"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="kamaName">कामाचे नाव:</label>
+          <input
+            id="kamaName"
+            type="text"
+            formControlName="kamaName"
+            placeholder="कामाचे नाव लिहा"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="labharthiName"> लाभार्थ्याचे नाव:</label>
+          <input
+            id="labharthiName"
+            type="text"
+            formControlName="labharthiName"
+            placeholder="लाभार्थ्याचे नाव लिहा"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="gaonTaluka">गाव:</label>
+          <input
+            id="gaonTaluka"
+            type="text"
+            formControlName="gaonTaluka"
+            placeholder="गाव लिहा"
+          />
+        </div>
+        <div class="form-group">
+          <label for="gaonTaluka">तालुका:</label>
+          <input
+            id="gaonTaluka"
+            type="text"
+            formControlName="gaonTaluka"
+            placeholder="तालुका लिहा"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="thekedarName">ठेकेदाराचे नाव:</label>
+          <input
+            id="thekedarName"
+            type="text"
+            formControlName="thekedarName"
+            placeholder="ठेकेदाराचे नाव"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="thekedarMobile">ठेकेदार मोबाईल नंबर:</label>
+          <input
+            id="thekedarMobile"
+            type="text"
+            formControlName="thekedarMobile"
+            placeholder="10 अंकांचा मोबाईल नंबर"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="kamaRakkam">कामाची रक्कम:</label>
+          <input
+            id="kamaRakkam"
+            type="number"
+            formControlName="kamaRakkam"
+            placeholder="₹ रक्कम लिहा"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="startDate">सुरुवातीची तारीख:</label>
+          <input id="startDate" type="date" formControlName="startDate" />
+        </div>
+
+        <div class="form-group">
+          <label for="endDate">शेवटची तारीख:</label>
+          <input id="endDate" type="date" formControlName="endDate" />
+        </div>
+
+        <div class="form-group">
+          <label>प्रशासकीय आदेश (PDF):</label>
+          <input
+            type="file"
+            accept="application/pdf"
+            (change)="onFileSelect($event, 'prashkiyAdesh')"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>कामाचा अंदाज (PDF):</label>
+          <input
+            type="file"
+            accept="application/pdf"
+            (change)="onFileSelect($event, 'kamaAndaj')"
+          />
+        </div>
+      </div>
+
+      <div class="submit-btn">
+        <button type="submit" [disabled]="kamForm.invalid">सबमिट करा</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+/* Main container: full viewport and fixed center */
+.ceo-dashboard-container {
+  position: fixed;          /* keep it fixed on screen */
+  top: 50%;                 /* vertical center */
+  left: 50%;                /* horizontal center */
+  transform: translate(-50%, -50%); /* truly center it */
+  width: 100%;
+  max-width: 600px;         /* optional max width */
+  padding: 20px;
+  background: linear-gradient(135deg, #fdf6f0, #f0f4ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  z-index: 999;             /* on top of other elements */
+}
+
+/* Card Styling */
+.dashboard-card {
+  background-color: #fff;
+  padding: 50px 35px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* Title & Description */
+h2 {
+  font-size: 2.4em;
+  color: #6c0000;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1.15em;
+  color: #555;
+  margin-bottom: 35px;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dashboard-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  font-size: 1em;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #6c0000, #8b0000);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 6px 18px rgba(108, 0, 0, 0.3);
+}
+
+.dashboard-button:hover {
+  background: linear-gradient(90deg, #8b0000, #6c0000);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(108, 0, 0, 0.4);
+}
+
+/* Responsive: buttons side by side for wider screens */
+@media (min-width: 600px) {
+  .button-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .dashboard-button {
+    width: 48%;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 400px) {
+  .dashboard-card {
+    padding: 35px 20px;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .dashboard-button {
+    font-size: 0.95em;
+    padding: 14px 20px;
+  }
+}

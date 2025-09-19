@@ -1,0 +1,35 @@
+<div class="form-container">
+  <div class="form-card">
+    <h2>👤 Create User</h2>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input id="username" type="text" formControlName="username" placeholder="Enter username" />
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" placeholder="Enter email" />
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" placeholder="Enter password" />
+      </div>
+
+      <!-- Role (Readonly) -->
+      <div class="form-group">
+        <label for="role">Role:</label>
+        <input id="role" type="text" formControlName="role" readonly />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="userForm.invalid">Create User</button>
+    </form>
+  </div>
+</div>

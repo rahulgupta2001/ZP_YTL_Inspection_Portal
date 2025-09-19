@@ -1,0 +1,99 @@
+<div class="container">
+  <h2>दौरा दैनंदिनी</h2>
+
+  <!-- Filter & Search Section -->
+  <div class="filter-search">
+    <div class="filters">
+      <label>तालुका:</label>
+      <select [(ngModel)]="selectedTaluka">
+        <option value="">-- सर्व तालुके --</option>
+        <option value="वणी">वणी</option>
+        <option value="कळंब">कळंब</option>
+        <option value="Shirur">Shirur</option>
+      </select>
+
+      <label>गाव:</label>
+      <select [(ngModel)]="selectedVillage">
+        <option value="">-- सर्व गावं --</option>
+        <option value="बोरगाव">बोरगाव</option>
+        <option value="भुरकी">भुरकी</option>
+        <option value="भवनपूर">भवनपूर</option>
+        <option value="अजनी">अजनी</option>
+        <option value="Wakad">Wakad</option>
+      </select>
+
+      <button class="filter-btn" (click)="applyFilter()">
+        पाहा <i class="fas fa-filter"></i>
+      </button>
+    </div>
+
+    <div class="search">
+      <label>शोधा:</label>
+      <input type="text" [(ngModel)]="searchText" (input)="applyFilter()" placeholder="Search..." />
+      <i class="fas fa-search search-icon"></i>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="inspection-table">
+      <thead>
+        <tr>
+          <th>योजना</th>
+          <th>वर्ष</th>
+          <th>तालुका</th>
+          <th>गाव</th>
+          <th>लाभार्थी चे नाव</th>
+          <th>विस्तार अधिकारी</th>
+          <th>तपासणी दिनांक</th>
+          <th>कृती</th>
+          <th>माहितीची सारणी</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of filteredData">
+          <td>{{ row.yojna }}</td>
+          <td>{{ row.year }}</td>
+          <td>{{ row.taluka }}</td>
+          <td>{{ row.village }}</td>
+          <td>{{ row.beneficiary }}</td>
+          <td>{{ row.officer }}</td>
+          <td>{{ row.date }}</td>
+          <td>
+            <button
+              [ngClass]="{
+                'blue-btn': row.action==='Inspection',
+                'green-btn': row.action==='Re-Inspection'
+              }"
+            >
+              <i class="fas" [ngClass]="row.action==='Inspection' ? 'fa-check' : 'fa-redo'"></i>
+              {{ row.action }}
+            </button>
+          </td>
+          <td>
+            <button class="detail-btn" (click)="showDetails(row)">
+              <i class="fas fa-info-circle"></i> तपशील
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Details Modal -->
+<div class="modal" *ngIf="selectedRow">
+  <div class="modal-content">
+    <span class="close" (click)="closeDetails()">&times;</span>
+    <h3>तपशील</h3>
+    <p><strong>योजना:</strong> {{ selectedRow.yojna }}</p>
+    <p><strong>वर्ष:</strong> {{ selectedRow.year }}</p>
+    <p><strong>तालुका:</strong> {{ selectedRow.taluka }}</p>
+    <p><strong>गाव:</strong> {{ selectedRow.village }}</p>
+    <p><strong>लाभार्थी चे नाव:</strong> {{ selectedRow.beneficiary }}</p>
+    <p><strong>विस्तार अधिकारी:</strong> {{ selectedRow.officer }}</p>
+    <p><strong>तपासणी दिनांक:</strong> {{ selectedRow.date }}</p>
+    <p><strong>कृती:</strong> {{ selectedRow.action }}</p>
+    <button class="close-btn" (click)="closeDetails()">बंद करा</button>
+  </div>
+</div>

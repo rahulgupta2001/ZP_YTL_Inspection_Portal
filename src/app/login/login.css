@@ -1,0 +1,144 @@
+/* --- Global Styles to Disable Scrolling --- */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Page Layout */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* Main Content and Login Card Styling */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.image-section .decorative-image {
+  max-width: 400px;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .image-section .decorative-image {
+    max-width: 80%;
+  }
+}
+
+.login-card-container {
+  width: 400px;
+  position: fixed;
+  margin-bottom: 200px;
+}
+
+@media (max-width: 450px) {
+  .login-card-container {
+    width: 90%;
+  }
+}
+
+.login-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: black;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon .icon,
+.input-with-icon .password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+}
+
+.input-with-icon .icon {
+  left: 15px;
+}
+
+.input-with-icon .password-toggle-icon {
+  right: 15px;
+  cursor: pointer;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 12px 45px;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.input-with-icon input:focus {
+  border-color: red;
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  background-color: #6c0000;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #4a0000;
+}
+
+.login-button:disabled {
+  background-color: #e6e6e6;
+  cursor: not-allowed;
+}
+
+.login-title {
+  text-align: center;
+}
+
+/* Footer style update for better readability */
+footer {
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+  padding: 10px;
+}
