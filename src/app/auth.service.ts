@@ -4,27 +4,34 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthService {
+  private readonly LOGIN_KEY = 'isLoggedIn';
+  private readonly ROLE_KEY = 'userRole';
+
   constructor() {}
 
+  // ✅ Check login status
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('isLoggedIn');
+    return localStorage.getItem(this.LOGIN_KEY) === 'true';
   }
 
-  // --- NEW: Add a role parameter to the login method ---
+  // ✅ Login and store role
   login(role: 'ceo' | 'clerk' | 'inspection-officer'): void {
-    localStorage.setItem('isLoggedIn', 'true');
-    // --- NEW: Store the user's role ---
-    localStorage.setItem('userRole', role);
+    localStorage.setItem(this.LOGIN_KEY, 'true');
+    localStorage.setItem(this.ROLE_KEY, role);
   }
 
+  // ✅ Logout
   logout(): void {
-    localStorage.removeItem('isLoggedIn');
-    // --- NEW: Remove the user's role on logout ---
-    localStorage.removeItem('userRole');
+    localStorage.removeItem(this.LOGIN_KEY);
+    localStorage.removeItem(this.ROLE_KEY);
   }
 
-  // --- NEW: Method to get the logged-in user's role ---
-  getRole(): string | null {
-    return localStorage.getItem('userRole');
+  // ✅ Get current role
+  getRole(): 'ceo' | 'clerk' | 'inspection-officer' | null {
+    return localStorage.getItem(this.ROLE_KEY) as
+      | 'ceo'
+      | 'clerk'
+      | 'inspection-officer'
+      | null;
   }
 }
